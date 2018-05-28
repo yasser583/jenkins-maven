@@ -1,6 +1,6 @@
 ---
 # deploy/master/docker-compose.yml
-# Define the version of the compose file we are using
+# Define the version of the compose file we're using
 version: '2'
 
 # Define our services
