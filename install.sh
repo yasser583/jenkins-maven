@@ -29,12 +29,18 @@ JENKINS_USER=jenkins
 
 if [ -S ${DOCKER_SOCKET} ]; then
   DOCKER_GID=$(stat -c '%g' ${DOCKER_SOCKET})
-  sudo groupadd -for -g ${DOCKER_GID} ${DOCKER_GROUP}
-  sudo usermod -aG ${DOCKER_GROUP} ${JENKINS_USER}
+  groupadd -for -g ${DOCKER_GID} ${DOCKER_GROUP}
+  usermod -aG ${DOCKER_GROUP} ${JENKINS_USER}
 fi
 
-adduser jenkins sudo
+sudo usermod -a -G docker jenkins
 sh -c "echo 'jenkins ALL=NOPASSWD: ALL' >> /etc/sudoers"
+systemctl jenkins restart
 
 # Install Tomcat
 apt-get install -y tomcat8
+
+# Iniciando portainer
+docker-compose up -d
+
+echo 'Recuerda cambiar el puerto de Tomcat en /etc/tomcat8/server.xml'
