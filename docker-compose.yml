@@ -1,0 +1,18 @@
+---
+# deploy/master/docker-compose.yml
+# Define the version of the compose file we're using
+version: '2'
+
+# Define our services
+services:
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    ports:
+      - "9000:9000"
+    restart: always
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+volumes:
+  portainer_home:
+    driver: local

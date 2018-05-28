@@ -11,7 +11,7 @@ apt-get update
 apt-get install -y oracle-java8-installer
 
 # Installing Maven
-apt-get install maven
+apt-get install -y maven
 
 #Install Jenkins
 wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
