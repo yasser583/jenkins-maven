@@ -22,7 +22,30 @@ stages{
                 }
             }
         }
-
+        stage('Test') {
+            parallel {
+                stage('Test On Windows') {
+                    steps {
+                        echo 'Windows - run-tests.bat'
+                    }
+                    post {
+                        always {
+                            echo "junit **/TEST-*.xml"
+                        }
+                    }
+                }
+                stage('Test On Linux') {
+                    steps {
+                        echo 'Linux - run-tests.sh'
+                    }
+                    post {
+                        always {
+                            echo "junit **/TEST-*.xml"
+                        }
+                    }
+                }
+            }
+        }
         stage ('Deployments'){
             parallel{
                 stage ('Deploy to Staging'){
