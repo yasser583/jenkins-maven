@@ -60,11 +60,9 @@ stages{
             }
         }
         stage ('Black Box Test'){
-            stage ('Black Box Tests'){
-                steps {
-                    //sh "scp -i /home/jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
-                    sh "echo Black Box Testing"
-                }
+            steps {
+                //sh "scp -i /home/jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+                sh "echo Black Box Testing"
             }
         }
     }
