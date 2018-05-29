@@ -8,6 +8,7 @@ chmod +x /usr/local/bin/docker-compose
 # Installing Java 8 Oracle
 add-apt-repository ppa:webupd8team/java
 apt-get update
+echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
 apt-get install -y oracle-java8-installer
 
 # Installing Maven
