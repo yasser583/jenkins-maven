@@ -44,4 +44,5 @@ apt-get install -y tomcat8
 # Iniciando portainer
 docker-compose up -d
 
-echo 'Recuerda cambiar el puerto de Tomcat en /etc/tomcat8/server.xml'
+echo 'Recuerda cambiar el puerto de Tomcat vi /etc/tomcat8/server.xml'
+echo 'Recuerda aumentar el # de ejecutores en Jenkins'
